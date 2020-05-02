@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Twitch Clip Downloader: Windsya">
+    <meta name="description" content="Windsya is the Twitch clip downloader that you need to help you to download Twitch clips. Our Free Twitch clip downloader is very easy and safe to use !!">
+    <meta charset="utf-8">
+
+    <!-- External CSS libraries -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-submenu.css">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="css/daterangepicker.css">
+    <link rel="stylesheet" href="css/leaflet.css" type="text/css">
+    <link rel="stylesheet" href="css/map.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="fonts/linearicons/style.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="css/dropzone.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="css/skins/default.css">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,300,700">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Dosis%7CMontserrat:200,300,400,500,600,700,800,900%7CNunito+Sans:200,300,400,600,700,800,900">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="text/css" href="css/ie10-viewport-bug-workaround.css">
+
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        h1 {
+            color: #9147ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page_loader"></div>
+
+    <!-- Main header start -->
+    <header class="main-header header-transparent sticky-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand logo" style="color:white;font-weight: bold;" href="index.html">
+                    Windsya
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" id="how_to_use">
+                                How to use
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" id="about_us">
+                                About us
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="privacy.html">
+                                Privacy Policy
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Main header end -->
+
+    <!-- Banner start -->
+    <div class="banner clearfix" id="banner">
+        <div id="bannerCarousole" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item banner-max-height active">
+                    <img class="d-block w-100 h-100" src="img/banner/banner-3.jpg" alt="banner">
+                    <div class="carousel-caption banner-slider-inner d-flex text-center"></div>
+                </div>
+            </div>
+        </div>
+        <div class="banner-inner-2">
+            <div class="container">
+                <div class="text-center">
+                    <h1 class="b-text">Twitch Clip Downloader</h1>
+                    <p>Download Twitch clips on one click</p>
+                    <div class="inline-search-area ml-auto mr-auto none-768">
+                        <form method="POST" role="form" id="form_download_video">
+                            <div class="search-boxs">
+                                <div class="search-col" style="width:80%;">
+                                    <input type="text" id="search" name="search" class="form-control has-icon b-radius" placeholder="Enter you Twitch Clip and hit submit">
+                                </div>
+                                <div class="find">
+                                    <button id="btn_find" class="btn button-theme btn-search btn-block b-radius">
+                                        <strong>Submit</strong>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="fa-3x" id="waiting_logo" style="display:none;">
+                            <i class="fa fa-refresh fa-spin" style="font-size:44px;color:#9147ff;"></i>
+                        </div><br>
+                        <div id="video_player" style="display:none;">
+                            <video width="420" height="240" controls>
+                                <source id="source1" src="https://clips-media-assets2.twitch.tv/AT-cm%7C682674698.mp4"
+                                    type="video/mp4">
+                                <source id="source2" src="https://clips-media-assets2.twitch.tv/AT-cm%7C682674698.mp4"
+                                    type="video/ogg">
+                                Your browser does not support the video tag.
+                            </video><br>
+                            <a class="btn button-theme" id="source3" href="" target="_blank">Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner end -->
+    <div class="how_to_use_div content-area-7">
+        <div class="container">
+            <!-- Main title -->
+            <div class="main-title text-center">
+                <h1>How to Use our Twitch Clip Downloader</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-pad">
+                    <p>Learning how to download twitch clips has never been easier! </p>
+                    <p>
+                        Windsya understands how important it is for us fellow gamers to be able to access the live streams on twitch that we never want to miss. But let’s be honest, there are time when you may not be able to watch your favorite streamer when they go live. Well,
+                        we have got a solution for you. Windsya provides our users the option of being able to download twitch clips.
+                    </p>
+                    <p>
+                        We will guide you through the process of on how to use our twitch clip downloader and adjust the start and end of the video, so you can watch your favorite parts.
+                    </p>
+                    <p>
+                        The first step is to copy the video link from Twitch.tv. You can access and copy the link, if you are using a browser, play the video you want to download through the Twitch.tv site. Once the video starts playing, copy the link from the browser address
+                        bar by right-clicking and select copy. You can also find the link through the Share button below the video and copy the link that it shows.
+                    </p>
+                    <p>
+                        After you have the copied the link in your clipboard, click on the white box on our website’s main page and paste it on there. Press enter and you are ready to go. From Twitch clip to mp4 in a matter of few seconds!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about_us_div content-area-7" style="padding-top:20px;">
+        <div class="container">
+            <!-- Main title -->
+            <div class="main-title text-center">
+                <h1>About Us</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-pad">
+                    <p>
+                        Being avid and dedicated gamers who love to watch streams of gameplay, the importance of twitch clips is not lost on us. Windsya is a twitch clip downloader prides itself in being a platform that is working towards providing gamers like us to be able
+                        to watch the twitch streams of our favorite online gamers out there. This website was created with the purpose of bringing us all together by allowing our users to download twitch clips. The vast amount of data used in streaming
+                        the twitch clips can be too much sometimes and we totally get that. This is why we enable our users to save twitch clips, going from a twitch clip to mp4, with just a few clicks. Our site allows for the users to select the specific
+                        parts of the twitch clips that they want to download and see without any interruptions or internet issues.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sub footer start -->
+    <div class="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <p class="copy">© 2020 <a>Windsya.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sub footer end -->
+
+    <!-- Full Page Search -->
+    <div id="full-page-search">
+        <button type="button" class="close">×</button>
+        <form action="http://storage.googleapis.com/themevessel-products/drix/index.html#">
+            <input type="search" value="" placeholder="type keyword(s) here" />
+            <button type="submit" class="btn btn-sm button-theme">Search</button>
+        </form>
+    </div>
+
+    <script src="js/jquery-2.2.0.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-submenu.js"></script>
+    <script src="js/rangeslider.js"></script>
+    <script src="js/jquery.mb.YTPlayer.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.scrollUp.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/leaflet-providers.js"></script>
+    <script src="js/leaflet.markercluster.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/daterangepicker.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.filterizr.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Custom javascript -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155617409-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155617409-2');
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#how_to_use").click(function() {
+                $('html,body').animate({
+                        scrollTop: $(".how_to_use_div").offset().top
+                    },
+                    'slow');
+            });
+            $("#about_us").click(function() {
+                $('html,body').animate({
+                        scrollTop: $(".about_us_div").offset().top
+                    },
+                    'slow');
+            });
+            $("#form_download_video").submit(function(event) {
+                event.preventDefault()
+                $("#waiting_logo").attr("style", "display:block");
+                $.ajax({
+                    url: "get_video_link.php",
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        data = jQuery.parseJSON(data);
+                        if (data['url'].includes("https://clips-media-assets2.twitch.tv")) {
+                            $("#waiting_logo").attr("style", "display:none");
+                            $("#source1").attr("src", data['url']);
+                            $("#source2").attr("src", data['url']);
+                            $("#source3").attr("href", data['url']);
+                            $("#video_player video")[0].load();
+                            $("#video_player").attr("style", "display:block");
+                        } else {
+                            alert("Wrong link");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
