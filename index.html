@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-    <title>Home</title>
+    <title>Twitch Clip Downloader | Windsya</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="Twitch Clip Downloader: Windsya">
     <meta name="description" content="Windsya is the Twitch clip downloader that you need to help you to download Twitch clips. Our Free Twitch clip downloader is very easy and safe to use !!">
@@ -85,54 +85,39 @@
         </div>
     </header>
     <!-- Main header end -->
-
-    <!-- Banner start -->
-    <div class="banner clearfix" id="banner">
-        <div id="bannerCarousole" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item banner-max-height active">
-                    <img class="d-block w-100 h-100" src="img/banner/banner-3.jpg" alt="banner">
-                    <div class="carousel-caption banner-slider-inner d-flex text-center"></div>
-                </div>
-            </div>
-        </div>
-        <div class="banner-inner-2">
-            <div class="container">
+    <div class="container">
+        <div class="jumbotron" style="margin-top:70px;background-color: #9147ff;">
+            <div class="col-lg-12 col-md-6 col-sm-6">
                 <div class="text-center">
-                    <h1 class="b-text">Twitch Clip Downloader</h1>
-                    <p>Download Twitch clips on one click</p>
-                    <div class="inline-search-area ml-auto mr-auto none-768">
-                        <form method="POST" role="form" id="form_download_video">
-                            <div class="search-boxs">
-                                <div class="search-col" style="width:80%;">
-                                    <input type="text" id="search" name="search" class="form-control has-icon b-radius" placeholder="Enter you Twitch Clip and hit submit">
-                                </div>
-                                <div class="find">
-                                    <button id="btn_find" class="btn button-theme btn-search btn-block b-radius">
-                                        <strong>Submit</strong>
-                                    </button>
-                                </div>
+                    <h1 style="color: white;">Twitch Clip Downloader</h1>
+                    <p style="color:white;">Download Twitch clips with one click</p>
+                    <form method="POST" role="form" id="form_download_video">
+                        <div class="input-group mb-3">
+                            <input type="text" id="search" name="search" class="form-control has-icon b-radius" placeholder="Enter you Twitch Clip and hit submit">
+                            <div class="input-group-append">
+                                <button id="btn_find" class="btn btn-search btn-block b-radius" style="background-color: white;border:1px solid #9147ff;">
+                                    <strong style="color:#9147ff;">Submit</strong>
+                                </button>
                             </div>
-                        </form>
-                        <div class="fa-3x" id="waiting_logo" style="display:none;">
-                            <i class="fa fa-refresh fa-spin" style="font-size:44px;color:#9147ff;"></i>
-                        </div><br>
-                        <div id="video_player" style="display:none;">
-                            <video width="420" height="240" controls>
-                                <source id="source1" src="https://clips-media-assets2.twitch.tv/AT-cm%7C682674698.mp4"
-                                    type="video/mp4">
-                                <source id="source2" src="https://clips-media-assets2.twitch.tv/AT-cm%7C682674698.mp4"
-                                    type="video/ogg">
-                                Your browser does not support the video tag.
-                            </video><br>
-                            <a class="btn button-theme" id="source3" href="" target="_blank">Download</a>
                         </div>
+                    </form>
+                    <div class="fa-3x" id="waiting_logo" style="display:none;">
+                        <i class="fa fa-refresh fa-spin" style="font-size:44px;color:white;;"></i>
+                    </div><br>
+                    <div id="video_player" style="display:none;margin:10px;">
+                        <video style="height:240px;max-width:100%;" controls>
+                            <source id="source1" src="https://clips-media-assets2.twitch.tv/AT-cm%7C682674698.mp4"
+                                type="video/mp4">
+                            <source id="source2" src="https://clips-media-assets2.twitch.tv/AT-cm%7C682674698.mp4"
+                                type="video/ogg">
+                            Your browser does not support the video tag.
+                        </video><br>
+                        <a class="btn" style="background-color:white;color:#9147ff;" id="source3" href="" target="_blank">Download</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Banner end -->
     <div class="how_to_use_div content-area-7">
         <div class="container">
             <!-- Main title -->
@@ -263,6 +248,7 @@
                     data: $(this).serialize(),
                     success: function(data) {
                         data = jQuery.parseJSON(data);
+                        // console.log(data);
                         if (data['url'].includes("https://clips-media-assets2.twitch.tv")) {
                             $("#waiting_logo").attr("style", "display:none");
                             $("#source1").attr("src", data['url']);
